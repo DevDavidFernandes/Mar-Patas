@@ -1,0 +1,209 @@
+/* ============================= */
+/* Variáveis de cores do projeto */
+/* ============================= */
+:root {
+  --cor1: #073a39; /* Cor principal (fundo da navbar) */
+  --cortrns1: rgba(3, 23, 22, 0.9); /* Cor transparente para o menu mobile */
+  --cor2: #82cf4e; /* Cor secundária (links, textos) */
+  --cor3: #e8c39e; /* Cor complementar */
+}
+
+/* ============================= */
+/* Reset e configurações gerais  */
+/* ============================= */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* Barra de navegação (navbar)   */
+/* ============================= */
+.navbar {
+  background-color: var(--cor1); /* Fundo escuro */
+  color: var(--cor3); /* Texto bege */
+  display: flex; /* Flexbox p/ alinhamento */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  height: 50px;
+}
+
+/* Logo do site */
+.logo {
+  font-size: 24px;
+}
+
+/* ============================= */
+/* Menu desktop (links visíveis) */
+/* ============================= */
+.nav-links-desktop {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Links lado a lado */
+}
+
+/* Espaçamento entre itens do menu desktop */
+.nav-links-desktop li {
+  padding: 0 15px;
+}
+
+/* Links gerais (desktop + mobile) */
+.nav-links-desktop a,
+.nav-links-mobile a {
+  color: var(--cor3); /* bege */
+  text-decoration: none; /* Remove sublinhado */
+  transition: 0.3s; /* Suaviza hover */
+}
+
+/* Efeito hover no desktop */
+.nav-links-desktop a:hover {
+  color: blue;
+}
+
+/* ============================= */
+/* Menu mobile (sidebar)         */
+/* ============================= */
+.mobile-menu {
+  display: none; /* Escondido por padrão */
+  position: fixed; /* Fica fixo na tela */
+  top: 0;
+  right: 0;
+  width: 60%; /* Ocupa 60% da largura */
+  height: 100%;
+  background-color: var(--cortrns1);
+  flex-direction: column; /* Links em coluna */
+  align-items: center;
+  font-size: 1.8rem;
+  z-index: 5; /* Fica acima do conteúdo */
+}
+
+/* Lista de links no mobile */
+.nav-links-mobile {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.2rem;
+  width: 80%;
+  list-style: none;
+  padding: 0;
+}
+
+/* Estilo dos itens (divisor entre eles) */
+.nav-links-mobile li {
+  border-bottom: 1px solid #787272;
+  padding-bottom: 1.2rem;
+}
+
+/* ============================= */
+/* Botões: hamburguer e fechar   */
+/* ============================= */
+.hamburger,
+.close {
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none; /* Escondidos por padrão */
+}
+
+/* Botão "X" no menu mobile */
+.close {
+  margin-top: 20px;
+  margin-right: 20px;
+  display: block; /* Aparece dentro do menu */
+  align-self: end; /* Fica alinhado à direita */
+}
+
+/* Classe utilitária de flex */
+.flex {
+  display: flex;
+}
+
+/* ============================= */
+/* Responsividade (até 768px)    */
+/* ============================= */
+@media (max-width: 768px) {
+  html {
+    font-size: 12px; /* Reduz fonte geral */
+  }
+
+  /* Esconde o menu desktop */
+  .nav-links-desktop {
+    display: none;
+  }
+
+  /* Mostra o botão hamburguer */
+  .hamburger {
+    display: block;
+  }
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+/* Estilos específicos para a versão desktop (largura a partir de 767px) */
+@media only screen and (min-width: 767px) {
+  .mobile-banner {
+    display: none;
+  }
+}
+/* Estilos específicos para a versão móvel (largura menor que 767px) */
+@media only screen and (max-width: 766px) {
+  .desktop-banner {
+    display: none;
+  }
+}
+
+.container-slider {
+  display: flex;
+  width: 100%;
+  min-height: 40vh;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.container-images {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1300px;
+}
+
+.slider {
+  opacity: 0;
+  transition: opacity 0.2s;
+  position: absolute;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.on {
+  opacity: 1;
+}
+
+#prev-button,
+#next-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#prev-button i,
+#next-button i {
+  width: 100%;
+  height: 100%;
+}
