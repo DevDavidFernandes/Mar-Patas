@@ -164,46 +164,184 @@ html {
   }
 }
 
-.container-slider {
-  display: flex;
-  width: 100%;
-  min-height: 40vh;
+/* ============================= */
+/* Container principal do slider */
+/* ============================= */
+.slider-container {
+  position: relative; /* Permite posicionar elementos absolutos dentro (botões) */
+  width: 100%; /* Ocupa toda a largura */
+  min-height: 50vh; /* Altura mínima de metade da tela */
+  display: flex; /* Centraliza o conteúdo */
   align-items: center;
   justify-content: center;
-  gap: 1rem;
 }
 
-.container-images {
+/* ============================= */
+/* Área que contém as imagens    */
+/* ============================= */
+.slider-images {
   position: relative;
+  width: 1300px; /* Largura fixa do slider (pode ajustar p/ responsivo) */
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 1300px;
+  align-items: center;
 }
 
+/* ============================= */
+/* Cada slide individual (imagem)*/
+/* ============================= */
 .slider {
-  opacity: 0;
-  transition: opacity 0.2s;
-  position: absolute;
-  width: 100%;
-  border-radius: 10px;
+  position: absolute; /* Todos ficam sobrepostos */
+  width: 100%; /* Ocupar toda a largura definida no container */
+  border-radius: 10px; /* Cantos arredondados */
+  opacity: 0; /* Escondido por padrão */
+  transition: opacity 0.3s ease; /* Suaviza a troca */
 }
 
-.on {
-  opacity: 1;
+/* Slide ativo (visível) */
+.slider.on {
+  opacity: 1; /* Mostra a imagem atual */
 }
 
-#prev-button,
-#next-button {
+/* ============================= */
+/* Botões de navegação           */
+/* ============================= */
+.slider-btn {
+  position: absolute; /* Fica em cima das imagens */
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%);
   width: 50px;
   height: 50px;
   border: none;
-  background-color: transparent;
+  border-radius: 50%; /* Formato circular */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Sombra discreta */
+  display: flex; /* Centraliza o ícone dentro do botão */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.3s; /* Anima hover */
+  background: #073a39;
+  color: #fff;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  transition: 0.3s;
+  z-index: 10; /* Garante que fica acima das imagens */
 }
 
-#prev-button i,
-#next-button i {
-  width: 100%;
-  height: 100%;
+/* Efeito hover no botão */
+.slider-btn:hover {
+  transform: translateY(-50%) scale(1.1); /* Cresce um pouco */
+  background: #0a5d5b;
 }
+
+/* Botão "anterior" (esquerda) */
+.slider-btn.prev {
+  left: 15px;
+}
+
+/* Botão "próximo" (direita) */
+.slider-btn.next {
+  right: 15px;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card i {
+  font-size: 1.8rem;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/*  */
+/*  */
+/*  */
+
+.carousel {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.4s ease-in-out;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.product-card {
+  flex: 0 0 180px;
+  max-width: 180px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.product-card img {
+  width: 100%;
+  height: 150px; 
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.discount {
+  background: var(--cor3);
+  color: var(--cor1);
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 5px;
+  position: absolute;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 14px;
+  margin: -5px 0;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--cor1);
+}
+

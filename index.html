@@ -48,24 +48,149 @@
     </nav>
     <!-- Fim da barra de navegação -->
 
-    <!-- Inicio do carrosel de imagens -->
-    <div class="container-slider">
-      <button id="prev-button">
+    <!-- ========================== -->
+    <!-- Início do carrossel de imagens -->
+    <!-- ========================== -->
+    <div class="slider-container">
+      <!-- Botão de navegação: anterior -->
+      <button class="slider-btn prev">
         <i class="fa-solid fa-arrow-left"></i>
+        <!-- Ícone de seta esquerda (Font Awesome) -->
       </button>
-      <div class="container-images">
+
+      <!-- Área onde ficam as imagens do slider -->
+      <div class="slider-images">
+        <!-- Slide 1 -->
         <img
           src="https://images.petz.com.br/fotos/Home_Desk_1900x390_MesdoLancamento_SeresSaude.jpg"
-          alt="promocao"
+          alt="Promoção"
           class="slider"
         />
+
+        <!-- Slide 2 -->
         <img
           src="https://images.petz.com.br/fotos/Home_Desk_1900x390_DisfarcaComprimido_CRIACAO_2025_09.jpg"
-          alt="promocao"
+          alt="Promoção"
           class="slider"
         />
+
+        <!-- Você pode adicionar mais <img> aqui para novos slides -->
       </div>
-      <button id="next-button"><i class="fa-solid fa-arrow-right"></i></button>
+
+      <!-- Botão de navegação: próximo -->
+      <button class="slider-btn next">
+        <i class="fa-solid fa-arrow-right"></i>
+        <!-- Ícone de seta direita (Font Awesome) -->
+      </button>
     </div>
+    <!-- ========================== -->
+    <!-- Fim do carrossel de imagens -->
+    <!-- ========================== -->
+
+    <section class="info-cards">
+      <div class="card">
+        <i class="fa-regular fa-clock"></i>
+        <div>
+          <h3>Receba em Horas</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-truck"></i>
+        <div>
+          <h3>Frete Grátis Brasil</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <i class="fa-regular fa-credit-card"></i>
+        <div>
+          <h3>Até 3x Sem Juros</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-store"></i>
+        <div>
+          <h3>Retire e Troque na Loja</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="carousel-container">
+      <h2 style="padding-left: 15px">Produtos recomendados</h2>
+      <div class="carousel">
+        <!-- Produto 1 -->
+        <div class="product-card">
+          <span class="discount">15% OFF</span>
+          <img
+            src="https://images.petz.com.br/fotos/1720725415371_mini.jpg"
+            alt="Produto 1"
+          />
+          <h3>Tapete Higiênico Petz para Cães</h3>
+          <p class="old-price">R$ 99,99</p>
+          <p class="price">R$ 84,99</p>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="product-card">
+          <span class="discount">20% OFF</span>
+          <img
+            src="https://images.petz.com.br/fotos/1704734162021_mini.jpg"
+            alt="Produto 2"
+          />
+          <h3>Bebedouro Fonte Spike Verde</h3>
+          <p class="old-price">R$ 94,99</p>
+          <p class="price">R$ 75,99</p>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="product-card">
+          <span class="discount">50% OFF</span>
+          <img
+            src="https://images.petz.com.br/fotos/1675267540668_mini.jpg"
+            alt="Produto 3"
+          />
+          <h3>Porta Ração Spike Rosa 1kg</h3>
+          <p class="old-price">R$ 59,99</p>
+          <p class="price">R$ 29,99</p>
+        </div>
+        <!-- Produto 4 -->
+        <div class="product-card">
+          <span class="discount">6% OFF</span>
+          <img
+            src="https://images.petz.com.br/fotos/10007230000528_1743695769118_mini.jpg"
+            alt="Produto 4"
+          />
+          <h3>Condicionador Virbac Phisioderm para Cães e Gatos</h3>
+          <p class="old-price">R$ 181,99</p>
+          <p class="price">R$ 170,90</p>
+        </div>
+        <!-- Produto 5 -->
+        <div class="product-card">
+          <span class="discount">15% OFF</span>
+          <img
+            src="https://images.petz.com.br/fotos/1568898398474_mini.jpg"
+            alt="Produto 5"
+          />
+          <h3>Casinha Recriar Pet para Cães Iglu Ecológica</h3>
+          <p class="old-price">R$ 99,99</p>
+          <p class="price">R$ 84,99</p>
+        </div>
+        <!-- Produto 6 -->
+        <div class="product-card">
+          <span class="discount">16% OFF</span>
+          <img
+            src="https://images.petz.com.br/fotos/1725977094714_mini.jpg"
+            alt="Produto 6"
+          />
+          <h3>
+            Ração Farmina Matisse para Gatos Adultos Castrados Sabor Cordeiro
+          </h3>
+          <p class="old-price">R$ 41,99</p>
+          <p class="price">R$ 34,99</p>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

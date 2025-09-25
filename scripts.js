@@ -19,53 +19,109 @@ closeButton.addEventListener("click", function() {
     mobileMenu.classList.remove("flex");
 });
 
-const slider = document.querySelectorAll('.slider');
-const btnPrev = document.getElementById('prev-button');
-const btnNext = document.getElementById('next-button');
+// Seleciona todos os slides
+const slides = document.querySelectorAll('.slider');
 
-let currentSlide = 0;
-let autoPlay; // vai guardar o setInterval
+// Seleciona os botões de navegação (anterior e próximo)
+const btnPrev = document.querySelector('.slider-btn.prev');
+const btnNext = document.querySelector('.slider-btn.next');
 
-function hideSlider() {
-  slider.forEach(item => item.classList.remove('on'));
+// Índice do slide atual
+let current = 0;
+
+// Variável para guardar o autoplay (setInterval)
+let autoPlay;
+
+/* ========================= */
+/* Funções de exibição       */
+/* ========================= */
+
+// Mostra um slide específico pelo índice
+function showSlide(index) {
+  // Remove a classe "on" de todos os slides
+  slides.forEach(slide => slide.classList.remove('on'));
+  
+  // Adiciona a classe "on" apenas no slide atual
+  slides[index].classList.add('on');
 }
 
-function showSlider() {
-  slider[currentSlide].classList.add('on');
+/* ========================= */
+/* Navegação manual          */
+/* ========================= */
+
+// Avança para o próximo slide
+function nextSlide() {
+  // Se passar do último, volta pro primeiro (ciclo infinito)
+  current = (current + 1) % slides.length;
+  showSlide(current);
 }
 
-function nextSlider() {
-  hideSlider();
-  currentSlide = (currentSlide === slider.length - 1) ? 0 : currentSlide + 1;
-  showSlider();
+// Volta para o slide anterior
+function prevSlide() {
+  // Se for antes do primeiro, vai pro último (ciclo infinito)
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
 }
 
-function prevSlider() {
-  hideSlider();
-  currentSlide = (currentSlide === 0) ? slider.length - 1 : currentSlide - 1;
-  showSlider();
-}
+/* ========================= */
+/* Controle do autoplay      */
+/* ========================= */
 
-// autoplay
+// Inicia autoplay (muda slide a cada 2s)
 function startAutoPlay() {
-  autoPlay = setInterval(nextSlider, 3000);
+  autoPlay = setInterval(nextSlide, 2000);
 }
 
+// Para o autoplay
 function stopAutoPlay() {
   clearInterval(autoPlay);
 }
 
-// eventos dos botões
+/* ========================= */
+/* Eventos dos botões        */
+/* ========================= */
+
+// Botão "próximo"
+// -> Para o autoplay e avança manualmente
 btnNext.addEventListener('click', () => {
-  stopAutoPlay(); 
-  nextSlider();
+  stopAutoPlay();
+  nextSlide();
 });
 
+// Botão "anterior"
+// -> Para o autoplay e volta manualmente
 btnPrev.addEventListener('click', () => {
-  stopAutoPlay(); 
-  prevSlider();
+  stopAutoPlay();
+  prevSlide();
 });
 
-// inicia o slider
-showSlider();
+/* ========================= */
+/* Inicialização do slider   */
+/* ========================= */
+
+// Mostra o primeiro slide ao carregar
+showSlide(current);
+
+// Começa o autoplay automaticamente
 startAutoPlay();
+
+
+
+
+
+
+
+
+const carousel = document.querySelector(".carousel");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let scrollAmount = 0;
+
+nextBtn.addEventListener("click", () => {
+  carousel.scrollBy({ left: 220, behavior: "smooth" });
+});
+
+prevBtn.addEventListener("click", () => {
+  carousel.scrollBy({ left: -220, behavior: "smooth" });
+});
